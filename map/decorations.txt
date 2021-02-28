@@ -1,0 +1,14 @@
+credits.png (0,3400)
+
+cs_PanamaCanal.png (607,1580)
+cs_SuezCanal.png (2980,1775)
+cs_StraitOfGibraltar.png (1730,1512)
+cs_DanishStraits.png (2410,450)
+cs_TurkishStraits.png (2980,1290)
+
+
+Impassable-SaharaDesert.png (1945,2045)
+Impassable-PripetMarshes.png (3035,728)
+Impassable-Himalayas.png (3975,1736)
+
+
