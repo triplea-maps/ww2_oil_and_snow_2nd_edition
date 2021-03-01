@@ -30,7 +30,9 @@ there are currently many more ideas that could be implemented if both ingredient
 
 Enjoy the result so far!
 
-please any comments , bug reporting or tips:  )(  preferable in a list of issues not single posts )
+please any comments , bug reporting or tips:
+(  preferable in a list of issues not single posts  & 
+    java bugs please with turn nr. and which players set to A.I.)
 
 https://forums.triplea-game.org/topic/2592/global-wwii-oil-snow-project/57?_=1614591967760
 or at:  wodamn@protonmail.com
