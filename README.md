@@ -11,7 +11,8 @@ Introduction: After playing many hours of A&A myself I started making own maps &
 
 As for me personally a decent realistic WWII A&A-game should contain:
 
-    Terrain types, - Seasonal impact, -Oil use and production and a way to avoid picking out the casualties all the time yourself, which is surreal. And some placement and purchasiung limits to avoid the often seen >30 Infantry units stacking in capitals.
+Terrain types, - Seasonal impact, -Oil use and production and a way to avoid picking out the casualties all the time yourself, 
+which is surreal. And some placement and purchasiung limits to avoid the often seen >30 Infantry units stacking in capitals.
 
 Besides I, with my teaching background, like to share less known aspects of history, to learn from. Like I added many collaborist volunteer units that played a part of the total forces in the field. And to play with soundfiles to give a good ambiance. I could not see a map combining all this so I started to make my own. It took some time but the momentum of 2020 there was suddenly the chance…..
 
