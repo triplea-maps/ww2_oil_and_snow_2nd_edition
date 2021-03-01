@@ -1,6 +1,8 @@
 # ww2_oil_and_snow_1st_edition
 
 GAME INFO: 
+
+
 In this scenario you focus on securing oil to fuel your units and to deploy them wisely in various terrains & 
 be aware of seasonal winter. It has a historical approach concerning weapon types development and minors joining 
 the battlefield. Starting point is early April 1941: Greece is still unuccopied, the USSR  respecting  
@@ -29,6 +31,7 @@ there are currently many more ideas that could be implemented if both ingredient
 Enjoy the result so far!
 
 please any comments , bug reporting or tips:  )(  preferable in a list of issues not single posts )
+
 https://forums.triplea-game.org/topic/2592/global-wwii-oil-snow-project/57?_=1614591967760
 or at:  wodamn@protonmail.com
 
