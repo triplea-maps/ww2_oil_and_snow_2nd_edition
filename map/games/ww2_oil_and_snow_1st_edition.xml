@@ -1,4 +1,4 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 
 <!DOCTYPE game SYSTEM "game.dtd">
 <game>
@@ -11428,14 +11428,14 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
     <property name="mapName" value="ww2_oil_and_snow_1st_edition" editable="false"/>
     <property name="notes">
       <value><![CDATA[  
-<div style="padding:14px;font-size:10px;background-color:white;text-align:justify;">
+<div style="padding:14px;font-size:16px;background-color:white;text-align:justify;">
 <img src="intro.png"/>
 <br>
 <B>SCENARIO INFO:</B>        <BR>
 In this scenario you focus on securing oil to fuel your units and to deploy them wisely in various terrains <BR>
 & be aware of seasonal winter. It has a historical approach concerning weapon types development and <BR>
 minors joing the battlefield. Starting point is early April 1941: Greece is still unuccopied, the USSR respecting<BR>
-its treaties with Germany and Japan & the USA is not yet involved. The USSR and USA are passive the 1t turn,<BR>
+its treaties with Germany and Japan & the USA is not yet involved. The USSR and USA are passive the 1st turn,<BR>
 they can purchase and place units but not move. Japan and Germany cannot attack USA or USSR in the 1st turn.
 <BR> ( partially due to non aggression treaties) From turn 2 all is possible!
 <BR><BR>
@@ -11444,148 +11444,147 @@ they can purchase and place units but not move. Japan and Germany cannot attack 
 can be found in the '41-'45 oil-producing regions of the world: depending on if it is a rich source (double drop) <BR>
 or regular source (single drop) there is a (regular or major) refinery producing fuel for your mechanized units. <BR>
 Infantry & cavalry may move without fuel. When conquered they turn yours directly because of AI not understanding <BR>
-the importance of repiring /rebuilding disabled or hit refineries. I made them indestructable, except they have far lower output <BR>
-of fuel when damaged. (major 8 out of 20 & regular 4 out of 10 fuel per turn) You can only repair existing refineries not upgrade <BR>
-or add new ones. If you run out of oil you can allways purchase fuel via oilbarrels but that ofcourse would have an impact on your <BR>
-unitproduction. When an Allied Territory with oil is liberated it returns to its original owner.<BR><BR>
+the importance of repairing /rebuilding disabled or hit refineries. I made them indestructable, except they have far lower output <BR>
+of fuel when damaged. (major 8 out of 20 & regular 4 out of 10 fuel per turn) You can only repair existing refineries, not upgrade <BR>
+or add new ones. If you run out of oil you can always purchase fuel via oil barrels but that of course would have an impact on your <BR>
+unit production. When an Allied Territory with oil is liberated, it returns to its original owner.<BR><BR>
 
 <b>#FACTORIES/BARRACKS: <img src="i_factory2.png"/> / <img src="i_factory.png"/> / <img src="i_barracks.png"/></b>
-Found only in players’original territory that have the factory or barrack sign! So not possible to build more of these. <BR>
-(As I consider it not realistic for example occupied Moscow to produce german Infantry or so)  And long supply-& reinforce <BR>
+Found only in players’original territory that have the Factory or Barrack sign! So not possible to build more of these. <BR>
+(As I consider it not realistic for example occupied Moscow to produce German Infantry or so)  And long supply-& reinforce <BR>
 lines when advancing far is a real challenge as should be.<BR>
-When conquered a opponents’ factory/barracks goes into disabled modus and can be reconquered by the original owner or <BR>
-their allies. Barracks produce max. 1 infantry per turn, a regular factory may produce 2 also other units per turn, but for the more <BR>
-serious stuff like heavy armour, battleships, carriers you need a major factory which produces max 5 units per turn.<BR>
-All teritories that contain a Black and White production sign ( barracks/factory or minor reinforcement) will always <BR>
+When conquered a opponents’ Factory/Barracks goes into disabled modus and can be reconquered by the original owner or <BR>
+their allies. Barracks produce max. 1 Infantry per turn, a regular Factory may also produce 2 other units per turn, but for the more <BR>
+serious stuff, such as Heavy Armour, Battleships, Carriers, you need a Major Factory which produces max 5 units per turn.<BR>
+All teritories that contain a Black and White production sign ( Barracks/Factory or minor reinforcement) will always <BR>
 go back to the original owner when liberated.<BR><BR>
 
 <b>#MINORS' REINFORCEMENTS</b> <img src="i_minor.png"/><BR>
-All minors with a black white soldier sign with a plus, will receive reinforcements in their main territory every start of a new year. <BR>
-Not completely historical but easier in a strategical sense. In most cases reinforcement will be infantry but there are pleasant exceptions! <BR><BR>
+All minors with a Black White Soldier sign with a plus, will receive reinforcements in their main territory every start of a new year. <BR>
+Not completely historical but easier in a strategical sense. In most cases, reinforcement will be Infantry, but there are pleasant exceptions! <BR><BR>
 
 <b>#TERRAIN EFFECT:</b> <img src="i_terrain.png"/>
 Every terrain type (jungle/desert/mountain/hills/marshes/forest/urban) has an impact on most units' attack, defense and/or movement. <BR>
-When hoovering over with your cursor you see basic impact info appear in bottom of frame. So sending your army into the mountains or urban <BR>
-warfare you will experience they will be much less effective. Imagine about sending heavy armour in marshes! ;) The star-sign means it is a victory city, <BR>
+When hovering over with your cursor, you see basic impact info appear in bottom of frame. So sending your army into the mountains or urban <BR>
+warfare, you will experience they will be much less effective. Imagine about sending heavy armour in marshes! ;) The star-sign means it is a victory city, <BR>
 contributing to winning the game!<BR><BR>
 
 <B>#WINTER:</B><img src="i_snow.png"/><BR> 
 There is a working calender in the upper right corner that gives you some sense of time: a winter= really a winter and deserves some extra challenges! <BR>
 Snow is the most restricting terrain feature there is... Territories that have serious annual snowfall have a blue/white snow flake sign. If there is a double <BR>
-snow flake sign it is an arctic territory meaning that winter start allready in sept.-oct and spring is to arrive only after april. -be prepared-<BR><BR>
+snow flake sign, it is an Arctic Territory, meaning that winter starts in Sept.-Oct and spring is to arrive only after April. -be prepared-<BR><BR>
 
 <b>#UNIT TERRAIN BONUS</b><img src="i_unit.png"/><BR>
-Some units deal better with extreme circumstances as they feel at home in it: finnish, soviet, mongol, canadian infantry and Soviet T34-armour<BR>
+Some units deal better with extreme circumstances as they feel at home in it: Finnish, Soviet, Mongol, Canadian infantry and Soviet T34-armour<BR>
 handle snow better (whereas Indian , Anzac, South African or Vichy French Legionaires perform better in desert) These units have a small symbol <BR>
 of this terrain type in the left corner. It is mostly the case in their offensive actions.<BR><BR>
 
 <b>#VOLUNTEERS</b> <img src="i_volunteers.png"/><BR>
-Some territories hold this sign telling you that a specific player gets "one time"free infantry unit(s) if liberating/conquering this territory. <BR>
-These are volunteers joining in! You get notifications and so.<BR><BR>
+Some territories hold this sign telling you that a specific player gets "one time"free Infantry unit(s) if liberating/conquering this territory. <BR>
+These are Volunteers joining in! You get notifications and so.<BR><BR>
 
 <b>#PARTISANS</b> <img src="i_partisans.png"/><BR>
-Some territories are (historical) active bases for partisan activities: they appear randomly (with a min. chance of 1 out of 10 in ) when their<BR>
-territory is occupied. In case of red flame sign; if occupied by Axis , if Black and red flame sign : if occupied by the russians or in the Pacific J<BR>
-Japanese homelands triggered by any Allied occupation if White and black flame sign : if occupied by the russians in East Europe <BR>
+Some territories are (historical) active bases for Partisan activities: they appear randomly (with a min. chance of 1 out of 10 in ) when their<BR>
+territory is occupied. In case of red flame sign; if occupied by Axis , if Black and red flame sign : if occupied by the Russians or in the Pacific J<BR>
+Japanese homelands triggered by any Allied occupation if White and black flame sign : if occupied by the Russians in East Europe <BR>
 ( still working on getting rid of the notifications of the roll, unsuccesful so far;)<BR>
-They are very light in combat, cannot move but they are annoying behind the frontlines, disrupting traffic and keeping units busy with <BR>
+They are very light in combat, cannot move, but they are annoying behind the frontlines, disrupting traffic and keeping units busy with <BR>
 suppression. Like they should .<BR>
 In GAME settings better switch off: USER NOTIFICATIONS-> SHOW TRIGGER/CONDITION CHANCE ROLL FAILURE: <BR>
-to avoid too many notifications during the game when failing to trigger partisans.<BR><BR>
+to avoid too many notifications during the game when failing to trigger Partisans.<BR><BR>
 
-<b>#LEADERS</b> <img src="i_leader.png"/><BR>Every player has a leader in its capital. (both french factionshave a improvised HQ in a regular territory ) <BR>
+<b>#LEADERS</b> <img src="i_leader.png"/><BR>Every player has a Leader in its capital. (both French factions have a improvised HQ in a regular territory ) <BR>
 A leader cannot move and will make a last stand there. They give +1 attack & defense bonus for all units in their territory and <BR>
 also deliver +2 PU and +2 Fuel per turn. Take it as a extra mission to knockout opponents leaders.<BR><BR>
 
 <b>#LEADERSHIP BONUS: </b> <img src="i_bonus.png"/><BR> 
 Of the many battles you will have there are one or two sticking out in importance: game changers. <BR>
 ( like in warfare there were also offensive & defensive setups which were much better prepared in planning, reconnaissance , supplies and so...)..<BR>
-To implement this I added Offensive & Defensive leadership bonus that you can use in every turn. You get +1 bonus which seems litttle but <BR>
-it makes a good difference. Even psychological! . The bonus is given in your capital and you can drag it all the way around the globe to important battles.<BR>
+To implement this, I added Offensive & Defensive leadership bonus that you can use in every turn. You get +1 bonus, which seems little, but <BR>
+it makes a good difference. Even psychological! The bonus is given in your capital and you can drag it all the way around the globe to important battles.<BR>
 An offensive bonus is auto-removed after battle and cannot be saved. The defensive bonus can be moved only in the noncombat movement into <BR>
 one of your territories where suspected enemy action...<BR>
-There is a slight historical ration of Bonuses: The AXIS: germany and japan get 2 offensive and 1 defensive bonus in the beginning and after 1/1, <BR>
+There is a slight historical ration of Bonuses: The AXIS: Germany and Japan get 2 offensive and 1 defensive bonus in the beginning and after 1/1, <BR>
 (as their experience and spirits where high). The Russians where crippled by Stalins purgues in leadership and not really combat ready at start receiving <BR>
-their bonus after 3 turns, though then they receive a double offensive bonus each winter to reflect their Winter offensive "tradition". The USA starts <BR>
+their bonus after 3 turns, though then they receive a double offensive bonus each winter to reflect their winter offensive "tradition". The USA starts <BR>
 up slow after 2 turns too and some minor players like Vichy have 1 defense bonus only .... anyway...<BR><BR>
 
 <b>#TRUCKS AND TRAINS: </b> <img src="i_rail.png"/><BR>
 Can be conquered. They move only after combat movement. Trains have a 5 movement and big loading capacity; they can move, load and move again. <BR>
 Really useful when dragging Siberian units to the East front for example.<BR>
 Trucks can move everywhere. (limited move in marshes and winter ) Trains can move in all areas that have Railroad-symbols sticking out of both sides of the <BR>
-Territories name field. I choose rail not be destructable like in Total War to minimize nr of total units. and AI handling. <BR><BR>
+Territories name field. I chose rail not to be destructable as in Total War to minimize number of total units and AI handling. <BR><BR>
 
 <b>#GARRISONS</b><BR>
-They are more small defensive units. Cheap, for defense and can move only in Non-combat phase.<BR><BR>
+They are additional small defensive units. Cheap, for defense and can move only in Non-combat phase.<BR><BR>
 
 <b>#STACKING & PLACEMENT LIMITS</b><BR>
-To avoid unrealistic stacking of infantry and garrisons in capitals as often seen by A.I> or human player, <BR> I have set a 10 unit placement limit for infantry
-and 5 for garrisons  so less likely to have >50 infantry piled up in capitals anymore..;)<BR><BR>
+To avoid unrealistic stacking of Infantry and Garrisons in Capitals as often seen by A.I> or Human Player, <BR> I have set a 10 unit placement limit for Infantry
+and 5 for Garrisons  so less likely to have >50 Infantry piled up in Capitals anymore..;)<BR><BR>
 
-<b>#BATTLESHIP & CARRIER CONSTRUCTION: </b> <img src="i_hull.png"/> <BR> Unlike in some other Triple A ww2 games you will place a hull when you purchased a carrier or battleship  <BR>
-it will automatically finish construction before next purchase into your choosen sea unit.<BR> Big things take time ;)
+<b>#BATTLESHIP & CARRIER CONSTRUCTION: </b> <img src="i_hull.png"/> <BR> Unlike in some other Triple A ww2 games, you will place a hull when you purchase a Carrier or Battleship and  <BR>
+it will automatically finish construction before next purchase into your chosen sea unit.<BR> Big things take time ;)
 <BR><BR>
 <b>#RAILROAD EXTENSION: </b> <img src="i_rail2.png"/> <BR>
-Some territories like for example Burma and Trans-Jordan have a Rairoad sign , but also a No railroad unit displayed. <BR>
-This means that the player controlling this territory has the possibility to construct railroads but they need to be purchased and place.<BR>
-Once constructed the new railroad will stay available to all players throughout the game. Connecting rail in transjordan and Burma has a big advantage <BR>
-connecting huge railroad networks across the map with eachother. Other routes to be connected might be Africa North-South and North-to South America.<BR><BR>
+Some territories, for example Burma and Trans-Jordan, have a Rairoad sign , but also a No railroad unit displayed. <BR>
+This means that the player controlling this territory has the possibility to construct railroads but they need to be purchased and placed.<BR>
+Once constructed, the new railroad will stay available to all players throughout the game. Connecting rail in TransJordan and Burma has a big advantage connecting huge railroad networks across the map with each other. Other routes to be connected, might be Africa North-South and North-to South America.<BR><BR>
 
-<b>#National Sea Zones</b><img src="i_zone.png"/> <BR>
+<b>#National Sea Zones</b><img src="i_zone.png"/><img src="RU Territory.png"/> <BR>
 The Americans and Russians have in the 1st turn some "national" Sea Zones (marked with this sign) that cannot be entered by the AXIS.<BR><BR>
 
 <B># AIR VERSUS SUBS:</B><BR>
-A destroyer is required in the seazone in order for an Air unitto be able to attack enemy subs. If the air unit is the attacker, the destroyer must be owned <BR>
-by the attacker player. If Air unit is a defender, the destroyer can be owned by an allied nation .<BR><BR>
+A Destroyer is required in the seazone in order for an Air unit to be able to attack enemy Subs. If the air unit is the attacker, the Destroyer must be owned <BR>
+by the attacker player. If Air unit is a defender, the Destroyer can be owned by an allied nation .<BR><BR>
 
 <B>#ENTRENCHMENT/FORTIFICATION:</B><BR>
-In each territory you control you can dig max. 1 entrenchment without factory needed. This unit has 2 hits and a low defense and acts like a bufferzone. <BR>
-It requires a infantry unit present when build. <BR>An entrenchment can be demolished once no longer usefull giving 1 pu in return. <BR>
-Recycling in WW2 ;) It can be upgraded into an fortification in following turns, which has 3 hits and is more powerful.<BR><BR>
+In each territory you control you can place a maximum of 1 Entrenchment without a Factory needed. This unit has 2 hits and a low defense and acts like a bufferzone. <BR>
+It requires an Infantry unit present to build. <BR>An Entrenchment can be demolished once no longer useful, giving 1 pu in return. <BR>
+Recycling in WW2 ;) It can be upgraded into a Fortification in following turns, which then has 3 hits and is more powerful.<BR><BR>
 
 <B>#ARTILLERY:</B><BR>
-Has also a pre-attack function so that it can knock out an opponent unit before it even engages into a fight. In this way an armour can be hit in the <BR>
+Has also a pre-attack function so that it can knock out an opponents' unit before it even engages into combat. In this way, an armour can be hit in the <BR>
 1st battle round instead of always picking infantry as casualties, making battle damage a bit more realistic and slightly more risky to put more expensive units<BR>
 in action, even if it is mostly just psychological.<BR><BR>
 
 <B>#AIRBASE: & CARRIER SCRAMBLE</B><BR>
-As common in tripleA: they provide you the option to intercept & scramble ( max\ 2 units) <BR>with fighters flying over (1 territory distance around) Very useful! <BR>
+As common in tripleA: they provide you the option to intercept & scramble ( max\ 2 units) <BR>with Fighters flying over (1 territory distance around) Very useful! <BR>
 Can be placed in any controlled territory & can be conquered.<BR>
-Carriers are like small airbases and they support 1 scrambling fighter unit.<BR><BR>
+Carriers are like small Airbases and they support 1 scrambling Fighter unit.<BR><BR>
 
 <B>#OBJECTIVES:</B><BR
->I love them! Especially in this historical approach… You get bonus PU's for fullfilling certain objectives: check your national objectives overview in right menu tab. <BR>
-( Fight opponents by interfering with their objectivest: a single subon a sea-convoy area can make an opponent loose several PU's per turn.) Useful!<BR><BR>
+>I love them! Especially in this historical approach… You get bonus PU's for fullfilling certain objectives: check your National Objectives overview in right menu tab. <BR>
+( Fight opponents by interfering with their objectives: a single sub on a sea-convoy area can make an opponent lose several PU's per turn.) Useful!<BR><BR>
 
 <B>#TECHNO_LOGICAL?</B><BR>
 Yes, in this version there is a historical fixed development for weaponry, I know some of you might Crucify me for this... <BR>
-and I imagine other versions of this game I will implement freedom for all! Right now your engineers will automatically provide you <BR>
+and I imagine other versions of this game I will implement freedom for all! Right now your Engineers will automatically provide you <BR>
 with the possibility to produce newer or more advanced units (mentioned in your Players start screen) , when the historical time has come ;) <BR>
-So Jet fighters appear when they did actually appear! And every player <BR><BR>
+So Jet Fighters appear when they actually did appear! And every player ? <BR><BR>
 
 <B>#UNIT PLACEMENT:</B><BR>
-I spend a hell lot of time in unit placement; really a awful lot of time: aaaaah!!!! As I wanted a clear overview of units, in order!!!<BR>
+I spend a hell lot of time in unit placement; really an awful lot of time: aaaaah!!!! As I wanted a clear overview of units, in order!!!<BR>
 Not random placed and by this sometimes looking like belonging to another territory is a game killer for me! But I also wanted a nice <BR>
-variation on unit types: as result I have the best nr of unit- places for most territory set at around 9... But I also Iwanted to have Key Cities to fight for ...<BR>
+variation on unit types: as result I have the best numberer of unit- places for most territory set at around 9... But I also wanted to have Key Cities to fight for ...<BR>
 which can be surrounded, besieged & fight till bitter end. For this I made small Urban Circles...(Why not bigger circles like in other maps? As it would be not <BR>
 I realise some of you WILL NOT appreciate this solution, so be it. So in small territories or urban areas you see a black white<BR><BR>
 
 <B>#MAGNIFYING GLASS: <img src="i_magnify.png"/></B><BR>
 This tells you that if there is at least 1 unit standing here, there could be far more in the overflowbox close above at games upper end. <BR>
-This might be ODD in the beginning. They move as being on the original field: so when moving drag a unit from the overflow box down to its <BR>
-Territory onboard and then make your movement, I got fast used to it. Wanne check fast unit numbers on a certain territory? Then use allready exisiting <BR>
-the territory tab in the right side game menu ... hoover over the areas before moving. It gives a bit of a fog of war effect, don't rush thinking an area contains only 1 unit! <BR>
-A.I.works very well with it and has no mercy to human neglectance! So give it a try!<BR><BR>
+This might be ODD in the beginning. They move as being on the original field: so when moving, drag a unit from the overflow box down to its <BR>
+Territory onboard and then make your movement, I got fast used to it. Wanne check fast unit numbers on a certain territory? Then use already exisiting <BR>
+the territory tab in the right side game menu ... hover over the areas before moving. It gives a bit of a fog of war effect, don't rush thinking an area contains only 1 unit! <BR>
+A.I.works very well with it and has no mercy to human negligence! So give it a try!<BR><BR>
 
 <B>#MY MAP: </B><BR>
 In comparisment with many other maps the USSR, CHINA and AFRICA have more Territories to reflect their vastness. This together with terrain type and winter <BR>
-makes a Japanese Armoured invasion sweeping in the far east less likely. But hej: try it.. ;) So that is some basic info.... the rest you find out by yourselves, by trying? <BR>
+makes a Japanese Armoured invasion sweeping in the Far East less likely. But hej: try it.. ;) So that is some basic info.... the rest you find out by yourselves, by trying? <BR>
 Like Soviet armoured trains can actually transport units too, that American Special sea transport unit has a light Bombard bonus and P38 can fly 5 instead of regular fighters’ 4.<BR>
-You feel like a micro level challenge? Try play with free french or vichy french. Are you bit new to TripleA :  give it a try with China.<BR><BR>
+You feel like a micro level challenge? Try play with Free French or Vichy French. Are you bit new to TripleA :  give it a try with China.<BR><BR>
 
 <B>=DISCLAIMER FOR THE CANADIAN FLAG:</B> <BR>
 forgive me : I was made aware of the fact that the Leaf flag I choose was only used in 1967... but I considered it too beautiful to change and besides the rightful flag looked <BR>
-too close to the chinese nationalist flag on the units bases. (And yes, the german and japanese flags are A&A boardgame icons for me...)<BR><BR>
+too close to the Chinese nationalist flag on the units bases. (And yes, the German and Japanese flags are A&A boardgame icons for me...)<BR><BR>
 
 =Credits: Inspired by Veqryns' Global WW2 & Hepps' Total World! <BR>
 Thanks 2 Wc_Sumption & Belee 4 fixing realistic Winter-Effect! & 2 Joseph Prince for some units support & <BR>
@@ -11594,6 +11593,19 @@ Special thanks to HEPPS, who is pretty occupied with amazing new TripleA-games a
  reflect and even test! , my respect , that is the spririt  & <BR>
  The under-water-sub-effect is inspired by Hepps subs! <BR>
 all support feedback from TripleA community. Game & develop on! <BR>
+Feedback welcome here:https://forums.triplea-game.org/topic/2592/global-wwii-oil-snow-project/72?page=4<br>
+<br>Change Log:
+<br>
+<br>
+1.4<br>
+3-6-2021<br>
+Initial upload.
+<br>
+<br>
+1.5<br>
+3-7-2021<br>
+Fixes missing Chinese start image. Fixes missing Neutral Allies Infantry and Garrison images. Change Game Note font to larger size 16. Update Game Notes. Add Russian image for National Sea Zones to Game Notes. Make intro of Notifications larger.<br>
+<br>
 
 Disclaimer Copyrights images: I was careful in selecting copyright-free images for the notifications;<BR>
 if however is found out that an image used is copyrighted, let me know (wodamn@protonmail.com) <br>
