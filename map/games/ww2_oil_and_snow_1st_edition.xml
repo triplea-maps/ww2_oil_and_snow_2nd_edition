@@ -9465,7 +9465,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 
 <!-- TRIGGER START INFO SCREENS -->
             
-<!-- switched german and intro screenAS GERMAN SCREEN KEPT JUMPING IN FRONT SCREEN NO MATTER WHAT -->
+<!-- switched german and intro screenAS GERMAN SCREEN KEPT JUMPING IN FRONT SCREEN NO MATTER WHAT-->
 
 <attachment name="triggerAttachmenIntro" attachTo="Germans" javaClass="TriggerAttachment" type="player">
       <option name="trigger" value="conditionAttachmentDummyGer"/>
@@ -9476,11 +9476,11 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 </attachment>
 <attachment name="triggerAttachmentStartGer" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
       <option name="trigger" value="conditionAttachmentDummyGer"/>
-      <option name="notification" value="Intro"/>
+    <option name="notification" value="StartIntro"/>
       <option name="when" value="before:germansPurchase"/>
       <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:Americans:British:ANZAC:Canadians:French"/>
       <option name="uses" value="1"/>
-</attachment>  
+</attachment> 
 <attachment name="triggerAttachmentStarIta" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player">
      <option name="trigger" value="conditionAttachmentDummyIta"/>
      <option name="notification" value="StartItalians"/>
@@ -9588,7 +9588,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentGermansConquerLeningrad"/>
      <option name="notification" value="LeningradFallen"/>
       <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:germansNonCombatMove"/>
+     <option name="when" value="before:germansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentItaliansConquerLeningrad" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Leningrad" count="1"/></attachment>
@@ -9596,7 +9596,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentItaliansConquerLeningrad"/>
      <option name="notification" value="LeningradFallen"/>
       <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:italiansNonCombatMove"/>
+     <option name="when" value="before:italiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentJapaneseConquerLeningrad" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Leningrad" count="1"/></attachment>
@@ -9604,7 +9604,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentJapaneseConquerLeningrad"/>
      <option name="notification" value="LeningradFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:japaneseNonCombatMove"/>
+     <option name="when" value="before:japaneseNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 
@@ -9613,7 +9613,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentGermansConquerStalingrad"/>
      <option name="notification" value="StalingradFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>    
-     <option name="when" value="after:germansNonCombatMove"/>
+     <option name="when" value="before:germansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentItaliansConquerStalingrad" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Stalingrad" count="1"/></attachment>
@@ -9621,7 +9621,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentItaliansConquerStalingrad"/>
      <option name="notification" value="StalingradFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:italiansNonCombatMove"/>
+     <option name="when" value="before:italiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentJapaneseConquerStalingrad" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Stalingrad" count="1"/></attachment>
@@ -9629,7 +9629,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentJapaneseConquerStalingrad"/>
      <option name="notification" value="StalingradFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:japaneseNonCombatMove"/>
+     <option name="when" value="before:japaneseNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <!-- MOSCOW-->
@@ -9638,7 +9638,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentGermansConquerMoscow"/>
      <option name="notification" value="MoscowFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:germansNonCombatMove"/>
+     <option name="when" value="before:germansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentItaliansConquerMoscow" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Moscow" count="1"/></attachment>
@@ -9646,7 +9646,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentItaliansConquerMoscow"/>
      <option name="notification" value="MoscowFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:italiansNonCombatMove"/>
+     <option name="when" value="before:italiansNonCombatMove"/>
      <option name="uses" value="1"/>  
 </attachment>
   <attachment name="conditionAttachmentJapaneseConquerMoscow" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Moscow" count="1"/></attachment>
@@ -9654,7 +9654,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentJapaneseConquerMoscow"/>
      <option name="notification" value="MoscowFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:japaneseNonCombatMove"/>
+     <option name="when" value="before:japaneseNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <!-- LONDON-->
@@ -9663,7 +9663,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentGermansConquerLondon"/>
      <option name="notification" value="LondonFallen"/>
     <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:germansNonCombatMove"/>
+     <option name="when" value="before:germansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentItaliansConquerLondon" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="London" count="1"/></attachment>
@@ -9671,7 +9671,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentItaliansConquerLondon"/>
      <option name="notification" value="LondonFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:italiansNonCombatMove"/>
+     <option name="when" value="before:italiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentJapaneseConquerLondon" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="London" count="1"/></attachment>
@@ -9679,7 +9679,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentJapaneseConquerLondon"/>
      <option name="notification" value="LondonFallen"/>
       <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:japaneseNonCombatMove"/>
+     <option name="when" value="before:japaneseNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 
@@ -9689,7 +9689,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentBritishConquerBerlin"/>
      <option name="notification" value="BerlinFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:britishNonCombatMove"/>
+     <option name="when" value="before:britishNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentAmericansConquerBerlin" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Berlin" count="1"/></attachment>
@@ -9705,7 +9705,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentANZACConquerBerlin"/>
      <option name="notification" value="BerlinFallen"/>
     <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:anzacNonCombatMove"/>
+     <option name="when" value="before:anzacNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentFrenchConquerBerlin" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Berlin" count="1"/></attachment>
@@ -9713,7 +9713,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentFrenchConquerBerlin"/>
      <option name="notification" value="BerlinFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:frenchNonCombatMove"/>
+     <option name="when" value="before:frenchNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentCanadiansConquerBerlin" attachTo="Canadians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Berlin" count="1"/></attachment>
@@ -9721,7 +9721,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentCanadiansConquerBerlin"/>
      <option name="notification" value="BerlinFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:canadiansNonCombatMove"/>
+     <option name="when" value="before:canadiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>       
             
@@ -9731,7 +9731,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentBritishConquerRome"/>
      <option name="notification" value="RomeFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:britishNonCombatMove"/>
+     <option name="when" value="before:britishNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentAmericansConquerRome" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Rome" count="1"/></attachment>
@@ -9747,7 +9747,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentANZACConquerRome"/>
      <option name="notification" value="RomeFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:anzacNonCombatMove"/>
+     <option name="when" value="before:anzacNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
  <attachment name="conditionAttachmentFrenchConquerRome" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Rome" count="1"/></attachment>
@@ -9755,7 +9755,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentFrenchConquerRome"/>
      <option name="notification" value="RomeFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:frenchNonCombatMove"/>
+     <option name="when" value="before:frenchNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
  <attachment name="conditionAttachmentCanadiansConquerRome" attachTo="Canadians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Rome" count="1"/></attachment>
@@ -9763,7 +9763,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentCanadiansConquerRome"/>
      <option name="notification" value="RomeFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:canadiansNonCombatMove"/>
+     <option name="when" value="before:canadiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <!-- TOKYO-->
@@ -9772,7 +9772,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentBritishConquerTokyo"/>
      <option name="notification" value="TokyoFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:britishNonCombatMove"/>
+     <option name="when" value="before:britishNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentAmericansConquerTokyo" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Tokyo" count="1"/></attachment>
@@ -9788,7 +9788,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentANZACConquerTokyo"/>
      <option name="notification" value="TokyoFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:anzacNonCombatMove"/>
+     <option name="when" value="before:anzacNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentFrenchConquerTokyo" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Tokyo" count="1"/></attachment>
@@ -9796,7 +9796,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentFrenchConquerTokyo"/>
      <option name="notification" value="TokyoFallen"/>
     <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:frenchNonCombatMove"/>
+     <option name="when" value="before:frenchNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentCanadiansConquerTokyo" attachTo="Canadians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Tokyo" count="1"/></attachment>
@@ -9804,7 +9804,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentCanadiansConquerTokyo"/>
      <option name="notification" value="TokyoFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:canadiansNonCombatMove"/>
+     <option name="when" value="before:canadiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 
@@ -11702,7 +11702,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
     <property name="mapName" value="ww2_oil_and_snow_1st_edition" editable="false"/>
    <property name="notes">
       <value><![CDATA[  
-<div style="padding:12px;font-size:16px;background-color:white;text-align:justify;">
+<div style="padding:12px;font-size:12px;background-color:white;text-align:justify;">
 <img src="intro.png"/>
 <br>
 <B>SCENARIO INFO:</B>        <BR>
