@@ -8,27 +8,17 @@
    <!-- and to FROSTION for advice -->
    <!-- Disclaimer Copyrights images: I was careful in selecting copyright-free images for the notifications;if however is found out that an image used is copyrighted, let me know ( wodamn@protonmail.com) and I will remove it or if sufficient: label it with the right source link.-->
    
-   <!-- Version="1.5"  main adjustments:     
-       - more uniform unit signing concerning strenght class and terrain benefits
-       - made a Navy surrender function for Black and Caspian Sea when the navy in concern has no longer ports for supply, dramatic but realistic ;other seazones are uneffected: maybe I make something similair for long city sieges one day 
-       - started downsize labels
-       -removable entrenchments
-       -added terrain relief
-       -adapted battleship and carrrier production with auto-switch hull 
-       -added city grid
-       -carrier functions as airbase but with 1 scramble facility
-      Version="1.6"  main adjustments: 
-     -Fixed1941 calender naming bug for Linux
+   <!-- Version="update info seebottom of this file"
         
 !!!!!!!!!!TO DO:!!!!!
+sound paritsani
+conq.city message directly....
 intro sound softer 
--Liberation sound!
 iran volunteers add signs
          add info bracket ssea
          info on repair system
 bulk winter code more simple ..
 missing image volunteers for minor players 
--
 cannot land
 cannot move german DEF TOKEN !!!!
  fog of war
@@ -1394,7 +1384,6 @@ check captured constructions  behaviour-->
   <delegate name="politics" javaClass="games.strategy.triplea.delegate.PoliticsDelegate" display="Politics"/>
   <delegate name="specialCombatMove" javaClass="games.strategy.triplea.delegate.SpecialMoveDelegate" display="Airborne Attack Move"/>
  
-
  <!-- Game Sequence -->
   <sequence>
          
@@ -1454,7 +1443,17 @@ check captured constructions  behaviour-->
         <!--<stepProperty name="skipPosting" value="true"/>    -->    <!-- WHY ? -->      
     </step>
             
-
+<!-- British Game Sequence -->
+      <step name="britishPurchase" delegate="purchase" player="British"/>
+      <step name="britishPolitics" delegate="politics" player="British"/>
+      <step name="britishCombatMove" delegate="move" player="British"/>
+      <step name="britishAirborneCombatMove" delegate="specialCombatMove" player="British" display="Airborne Attack Move"/>
+      <step name="britishBattle" delegate="battle" player="British"/>
+      <step name="britishNonCombatMove" delegate="move" player="British" display="Non Combat Move"/>
+      <step name="britishPlace" delegate="place" player="British"/>
+      <step name="britishEndTurn" delegate="endTurn" player="British">
+       <!-- <stepProperty name="skipPosting" value="true"/>-->
+      </step>
             
       <!-- CANADIANS Game Sequence -->
       <step name="canadiansPurchase" delegate="purchase" player="Canadians"/>
@@ -9468,7 +9467,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
             
 <!-- switched german and intro screenAS GERMAN SCREEN KEPT JUMPING IN FRONT SCREEN NO MATTER WHAT -->
 
-<attachment name="triggerAttachmentwo" attachTo="Germans" javaClass="TriggerAttachment" type="player">
+<attachment name="triggerAttachmenIntro" attachTo="Germans" javaClass="TriggerAttachment" type="player">
       <option name="trigger" value="conditionAttachmentDummyGer"/>
       <option name="notification" value="StartGermans"/>
       <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:Americans:British:ANZAC:Canadians:French"/>
@@ -9589,7 +9588,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentGermansConquerLeningrad"/>
      <option name="notification" value="LeningradFallen"/>
       <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:germansCombatMove"/>
+     <option name="when" value="after:germansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentItaliansConquerLeningrad" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Leningrad" count="1"/></attachment>
@@ -9597,7 +9596,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentItaliansConquerLeningrad"/>
      <option name="notification" value="LeningradFallen"/>
       <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:italiansCombatMove"/>
+     <option name="when" value="after:italiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentJapaneseConquerLeningrad" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Leningrad" count="1"/></attachment>
@@ -9605,7 +9604,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentJapaneseConquerLeningrad"/>
      <option name="notification" value="LeningradFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:japaneseCombatMove"/>
+     <option name="when" value="after:japaneseNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 
@@ -9614,7 +9613,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentGermansConquerStalingrad"/>
      <option name="notification" value="StalingradFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>    
-     <option name="when" value="after:germansCombatMove"/>
+     <option name="when" value="after:germansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentItaliansConquerStalingrad" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Stalingrad" count="1"/></attachment>
@@ -9622,7 +9621,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentItaliansConquerStalingrad"/>
      <option name="notification" value="StalingradFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:italiansCombatMove"/>
+     <option name="when" value="after:italiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentJapaneseConquerStalingrad" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Stalingrad" count="1"/></attachment>
@@ -9630,7 +9629,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentJapaneseConquerStalingrad"/>
      <option name="notification" value="StalingradFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:japaneseCombatMove"/>
+     <option name="when" value="after:japaneseNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <!-- MOSCOW-->
@@ -9639,7 +9638,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentGermansConquerMoscow"/>
      <option name="notification" value="MoscowFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:germansCombatMove"/>
+     <option name="when" value="after:germansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentItaliansConquerMoscow" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Moscow" count="1"/></attachment>
@@ -9647,7 +9646,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentItaliansConquerMoscow"/>
      <option name="notification" value="MoscowFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:italiansCombatMove"/>
+     <option name="when" value="after:italiansNonCombatMove"/>
      <option name="uses" value="1"/>  
 </attachment>
   <attachment name="conditionAttachmentJapaneseConquerMoscow" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Moscow" count="1"/></attachment>
@@ -9655,7 +9654,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentJapaneseConquerMoscow"/>
      <option name="notification" value="MoscowFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:japaneseCombatMove"/>
+     <option name="when" value="after:japaneseNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <!-- LONDON-->
@@ -9664,7 +9663,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentGermansConquerLondon"/>
      <option name="notification" value="LondonFallen"/>
     <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:germansCombatMove"/>
+     <option name="when" value="after:germansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentItaliansConquerLondon" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="London" count="1"/></attachment>
@@ -9672,7 +9671,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentItaliansConquerLondon"/>
      <option name="notification" value="LondonFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:italiansCombatMove"/>
+     <option name="when" value="after:italiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentJapaneseConquerLondon" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="London" count="1"/></attachment>
@@ -9680,7 +9679,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentJapaneseConquerLondon"/>
      <option name="notification" value="LondonFallen"/>
       <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:japaneseCombatMove"/>
+     <option name="when" value="after:japaneseNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 
@@ -9690,7 +9689,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentBritishConquerBerlin"/>
      <option name="notification" value="BerlinFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:britishCombatMove"/>
+     <option name="when" value="after:britishNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentAmericansConquerBerlin" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Berlin" count="1"/></attachment>
@@ -9698,7 +9697,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentAmericansConquerBerlin"/>
      <option name="notification" value="BerlinFallen"/>
     <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="before:americansNonCombatMove"/>
+     <option name="when" value="before:americansNonNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentANZACConquerBerlin" attachTo="ANZAC" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Berlin" count="1"/></attachment>
@@ -9706,7 +9705,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentANZACConquerBerlin"/>
      <option name="notification" value="BerlinFallen"/>
     <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:anzacCombatMove"/>
+     <option name="when" value="after:anzacNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentFrenchConquerBerlin" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Berlin" count="1"/></attachment>
@@ -9714,7 +9713,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentFrenchConquerBerlin"/>
      <option name="notification" value="BerlinFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:frenchCombatMove"/>
+     <option name="when" value="after:frenchNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentCanadiansConquerBerlin" attachTo="Canadians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Berlin" count="1"/></attachment>
@@ -9722,7 +9721,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentCanadiansConquerBerlin"/>
      <option name="notification" value="BerlinFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:canadiansCombatMove"/>
+     <option name="when" value="after:canadiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>       
             
@@ -9732,7 +9731,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentBritishConquerRome"/>
      <option name="notification" value="RomeFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:britishCombatMove"/>
+     <option name="when" value="after:britishNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentAmericansConquerRome" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Rome" count="1"/></attachment>
@@ -9748,7 +9747,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentANZACConquerRome"/>
      <option name="notification" value="RomeFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:anzacCombatMove"/>
+     <option name="when" value="after:anzacNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
  <attachment name="conditionAttachmentFrenchConquerRome" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Rome" count="1"/></attachment>
@@ -9756,7 +9755,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentFrenchConquerRome"/>
      <option name="notification" value="RomeFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:frenchCombatMove"/>
+     <option name="when" value="after:frenchNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
  <attachment name="conditionAttachmentCanadiansConquerRome" attachTo="Canadians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Rome" count="1"/></attachment>
@@ -9764,7 +9763,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentCanadiansConquerRome"/>
      <option name="notification" value="RomeFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:canadiansCombatMove"/>
+     <option name="when" value="after:canadiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <!-- TOKYO-->
@@ -9773,7 +9772,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentBritishConquerTokyo"/>
      <option name="notification" value="TokyoFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:britishCombatMove"/>
+     <option name="when" value="after:britishNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentAmericansConquerTokyo" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Tokyo" count="1"/></attachment>
@@ -9781,7 +9780,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentAmericansConquerTokyo"/>
      <option name="notification" value="TokyoFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="before:americansNonCombatMove"/>
+     <option name="when" value="before:americansNonNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
   <attachment name="conditionAttachmentANZACConquerTokyo" attachTo="ANZAC" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Tokyo" count="1"/></attachment>
@@ -9789,7 +9788,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentANZACConquerTokyo"/>
      <option name="notification" value="TokyoFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:anzacCombatMove"/>
+     <option name="when" value="after:anzacNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentFrenchConquerTokyo" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Tokyo" count="1"/></attachment>
@@ -9797,7 +9796,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentFrenchConquerTokyo"/>
      <option name="notification" value="TokyoFallen"/>
     <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:frenchCombatMove"/>
+     <option name="when" value="after:frenchNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
 <attachment name="conditionAttachmentCanadiansConquerTokyo" attachTo="Canadians" javaClass="RulesAttachment" type="player"><option name="directOwnershipTerritories" value="Tokyo" count="1"/></attachment>
@@ -9805,10 +9804,9 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
      <option name="trigger" value="conditionAttachmentCanadiansConquerTokyo"/>
      <option name="notification" value="TokyoFallen"/>
      <option name="players" value="Germans:Italians:Japanese:Vichy-French:Russians:Chinese:British:Canadians:ANZAC:Americans:French"/>
-     <option name="when" value="after:canadiansCombatMove"/>
+     <option name="when" value="after:canadiansNonCombatMove"/>
      <option name="uses" value="1"/>
 </attachment>
-
 
 <!-- RAIL ROAD EXTENSIONS OPTIONS-->
 <!-- chinese-->
@@ -9947,84 +9945,85 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
 <attachment name="conditionAttachmentBlackSeaIsolatedGer" attachTo="Germans" javaClass="games.strategy.triplea.attachments.RulesAttachment" type="player"><option name="enemyPresenceTerritories" value="Bulgaria:Rumania:West Kazakhstan:East Kazakhstan:Crimea:Rostov:Caucasus" count="7"/></attachment>
 <attachment name="triggerAttachmentRemoveRumanianNavyIfBlackSeaIsolated" attachTo="Germans" javaClass="TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentBlackSeaIsolatedGer"/><option name="players" value="Germans:Italians:Neutral_Axis"/><option name="notification" value="BlackSeaAxisNavySurrenders"/><option name="players" value="Germans:Italians"/><option name="removeUnits" value="38 Sea Zone:all" count="1"/><option name="removeUnits" value="39 Sea Zone:all" count="1"/><option name="when" value="after:germansPurchase"/></attachment>
 
+
 <!-- HULL AUTO SWITCH -->
 <!--germans-->
-  <attachment name="conditionAttachmentUnitsGer_Hull_Batttleship14" attachTo="Germans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="14 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship14" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsGer_Hull_Batttleship14"/><option name="placement" value="14 Sea Zone:battleship"/><option name="when" value="before:germansPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsGer_Hull_Battleship14" attachTo="Germans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="14 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship14" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsGer_Hull_Battleship14"/><option name="placement" value="14 Sea Zone:battleship"/><option name="removeUnits" value="14 Sea Zone:hull_battleship"/><option name="when" value="before:germansPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsGer_Hull_Carrier14" attachTo="Germans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="14 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer14" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsGer_Hull_Carrier14"/><option name="placement" value="14 Sea Zone:carrier"/><option name="when" value="before:germansPurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsGer_Hull_Batttleship15" attachTo="Germans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="15 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship15" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsGer_Hull_Batttleship15"/><option name="placement" value="15 Sea Zone:battleship"/><option name="when" value="before:germansPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer14" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsGer_Hull_Carrier14"/><option name="placement" value="14 Sea Zone:carrier"/><option name="removeUnits" value="14 Sea Zone:hull_carrier"/><option name="when" value="before:germansPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsGer_Hull_Battleship15" attachTo="Germans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="15 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship15" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsGer_Hull_Battleship15"/><option name="placement" value="15 Sea Zone:battleship"/><option name="removeUnits" value="15 Sea Zone:hull_battleship"/><option name="when" value="before:germansPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsGer_Hull_Carrier15" attachTo="Germans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="15 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer15" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsGer_Hull_Carrier15"/><option name="placement" value="15 Sea Zone:carrier"/><option name="when" value="before:germansPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer15" attachTo="Germans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsGer_Hull_Carrier15"/><option name="placement" value="15 Sea Zone:carrier"/><option name="removeUnits" value="15 Sea Zone:hull_carrier"/><option name="when" value="before:germansPurchase"/></attachment>
  
   <!--italians-->
-  <attachment name="conditionAttachmentUnitsIta_Hull_Batttleship33" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="33 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship33" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsIta_Hull_Batttleship33"/><option name="placement" value="33 Sea Zone:battleship"/><option name="when" value="before:italiansPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsIta_Hull_Battleship33" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="33 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship33" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsIta_Hull_Battleship33"/><option name="placement" value="33 Sea Zone:battleship"/><option name="removeUnits" value="33 Sea Zone:hull_battleship"/><option name="when" value="before:italiansPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsIta_Hull_Carrier33" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="33 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer33" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsIta_Hull_Carrier33"/><option name="placement" value="33 Sea Zone:carrier"/><option name="when" value="before:italiansPurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsIta_Hull_Batttleship35" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="35 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship35" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsIta_Hull_Batttleship35"/><option name="placement" value="35 Sea Zone:battleship"/><option name="when" value="before:italiansPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer33" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsIta_Hull_Carrier33"/><option name="placement" value="33 Sea Zone:carrier"/><option name="removeUnits" value="33 Sea Zone:hull_carrier"/><option name="when" value="before:italiansPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsIta_Hull_Battleship35" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="35 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship35" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsIta_Hull_Battleship35"/><option name="placement" value="35 Sea Zone:battleship"/><option name="removeUnits" value="35 Sea Zone:hull_battleship"/><option name="when" value="before:italiansPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsIta_Hull_Carrier35" attachTo="Italians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="35 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer35" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsIta_Hull_Carrier35"/><option name="placement" value="35 Sea Zone:carrier"/><option name="when" value="before:italiansPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer35" attachTo="Italians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsIta_Hull_Carrier35"/><option name="placement" value="35 Sea Zone:carrier"/><option name="removeUnits" value="35 Sea Zone:hull_carrier"/><option name="when" value="before:italiansPurchase"/></attachment>
 
 <!--japanese-->
-  <attachment name="conditionAttachmentUnitsJap_Hull_Batttleship127" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="127 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship127" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Batttleship127"/><option name="placement" value="127 Sea Zone:battleship"/><option name="when" value="before:japanesePurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsJap_Hull_Battleship127" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="127 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship127" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Battleship127"/><option name="placement" value="127 Sea Zone:battleship"/><option name="removeUnits" value="127 Sea Zone:hull_battleship"/><option name="when" value="before:japanesePurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsJap_Hull_Carrier127" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="127 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer127" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Carrier127"/><option name="placement" value="127 Sea Zone:carrier"/><option name="when" value="before:japanesePurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsJap_Hull_Batttleship133" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="133 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship133" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Batttleship133"/><option name="placement" value="133 Sea Zone:battleship"/><option name="when" value="before:japanesePurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer127" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Carrier127"/><option name="placement" value="127 Sea Zone:carrier"/><option name="removeUnits" value="127 Sea Zone:hull_carrier"/><option name="when" value="before:japanesePurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsJap_Hull_Battleship133" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="133 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship133" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Battleship133"/><option name="placement" value="133 Sea Zone:battleship"/><option name="removeUnits" value="133 Sea Zone:hull_battleship"/><option name="when" value="before:japanesePurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsJap_Hull_Carrier133" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="133 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer133" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Carrier133"/><option name="placement" value="133 Sea Zone:carrier"/><option name="when" value="before:japanesePurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsJap_Hull_Batttleship134" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="134 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship134" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Batttleship134"/><option name="placement" value="134 Sea Zone:battleship"/><option name="when" value="before:japanesePurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer133" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Carrier133"/><option name="placement" value="133 Sea Zone:carrier"/><option name="removeUnits" value="133 Sea Zone:hull_carrier"/><option name="when" value="before:japanesePurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsJap_Hull_Battleship134" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="134 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship134" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Battleship134"/><option name="placement" value="134 Sea Zone:battleship"/><option name="removeUnits" value="134 Sea Zone:hull_battleship"/><option name="when" value="before:japanesePurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsJap_Hull_Carrier134" attachTo="Japanese" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="134 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer134" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Carrier134"/><option name="placement" value="134 Sea Zone:carrier"/><option name="when" value="before:japanesePurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer134" attachTo="Japanese" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsJap_Hull_Carrier134"/><option name="placement" value="134 Sea Zone:carrier"/><option name="removeUnits" value="134 Sea Zone:hull_carrier"/><option name="when" value="before:japanesePurchase"/></attachment>
 <!--russians-->
-  <attachment name="conditionAttachmentUnitsRus_Hull_Batttleship16" attachTo="Russians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="16 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship16" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsRus_Hull_Batttleship16"/><option name="placement" value="16 Sea Zone:battleship"/><option name="when" value="before:russiansPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsRus_Hull_Battleship16" attachTo="Russians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="16 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship16" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsRus_Hull_Battleship16"/><option name="placement" value="16 Sea Zone:battleship"/><option name="removeUnits" value="16 Sea Zone:hull_battleship"/><option name="when" value="before:russiansPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsRus_Hull_Carrier16" attachTo="Russians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="16 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer16" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsRus_Hull_Carrier16"/><option name="placement" value="16 Sea Zone:carrier"/><option name="when" value="before:russiansPurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsRus_Hull_Batttleship39" attachTo="Russians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="39 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship39" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsRus_Hull_Batttleship39"/><option name="placement" value="39 Sea Zone:battleship"/><option name="when" value="before:russiansPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer16" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsRus_Hull_Carrier16"/><option name="placement" value="16 Sea Zone:carrier"/><option name="removeUnits" value="16 Sea Zone:hull_carrier"/><option name="when" value="before:russiansPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsRus_Hull_Battleship39" attachTo="Russians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="39 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship39" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsRus_Hull_Battleship39"/><option name="placement" value="39 Sea Zone:battleship"/><option name="removeUnits" value="39 Sea Zone:hull_battleship"/><option name="when" value="before:russiansPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsRus_Hull_Carrier39" attachTo="Russians" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="39 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer39" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsRus_Hull_Carrier39"/><option name="placement" value="39 Sea Zone:carrier"/><option name="when" value="before:russiansPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer39" attachTo="Russians" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsRus_Hull_Carrier39"/><option name="placement" value="39 Sea Zone:carrier"/><option name="removeUnits" value="39 Sea Zone:hull_carrier"/><option name="when" value="before:russiansPurchase"/></attachment>
 <!--british-->
-  <attachment name="conditionAttachmentUnitsBri_Hull_Batttleship12" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="12 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship12" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Batttleship12"/><option name="placement" value="12 Sea Zone:battleship"/><option name="when" value="before:britishPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsBri_Hull_Battleship12" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="12 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship12" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Battleship12"/><option name="placement" value="12 Sea Zone:battleship"/><option name="removeUnits" value="12 Sea Zone:hull_battleship"/><option name="when" value="before:britishPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsBri_Hull_Carrier12" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="12 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer12" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Carrier12"/><option name="placement" value="12 Sea Zone:carrier"/><option name="when" value="before:britishPurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsBri_Hull_Batttleship13" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="13 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship13" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Batttleship13"/><option name="placement" value="13 Sea Zone:battleship"/><option name="when" value="before:britishPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer12" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Carrier12"/><option name="placement" value="12 Sea Zone:carrier"/><option name="removeUnits" value="12 Sea Zone:hull_carrier"/><option name="when" value="before:britishPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsBri_Hull_Battleship13" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="13 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship13" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Battleship13"/><option name="placement" value="13 Sea Zone:battleship"/><option name="removeUnits" value="13 Sea Zone:hull_battleship"/><option name="when" value="before:britishPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsBri_Hull_Carrier13" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="13 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer13" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Carrier13"/><option name="placement" value="13 Sea Zone:carrier"/><option name="when" value="before:britishPurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsBri_Hull_Batttleship21" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="21 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship21" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Batttleship21"/><option name="placement" value="21 Sea Zone:battleship"/><option name="when" value="before:britishPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer13" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Carrier13"/><option name="placement" value="13 Sea Zone:carrier"/><option name="removeUnits" value="13 Sea Zone:hull_carrier"/><option name="when" value="before:britishPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsBri_Hull_Battleship21" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="21 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship21" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Battleship21"/><option name="placement" value="21 Sea Zone:battleship"/><option name="removeUnits" value="21 Sea Zone:hull_battleship"/><option name="when" value="before:britishPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsBri_Hull_Carrier21" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="21 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer21" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Carrier21"/><option name="placement" value="21 Sea Zone:carrier"/><option name="when" value="before:britishPurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsBri_Hull_Batttleship22" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="22 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship22" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Batttleship22"/><option name="placement" value="22 Sea Zone:battleship"/><option name="when" value="before:britishPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer21" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Carrier21"/><option name="placement" value="21 Sea Zone:carrier"/><option name="removeUnits" value="21 Sea Zone:hull_carrier"/><option name="when" value="before:britishPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsBri_Hull_Battleship22" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="22 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship22" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Battleship22"/><option name="placement" value="22 Sea Zone:battleship"/><option name="removeUnits" value="22 Sea Zone:hull_battleship"/><option name="when" value="before:britishPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsBri_Hull_Carrier22" attachTo="British" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="22 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer22" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Carrier22"/><option name="placement" value="22 Sea Zone:carrier"/><option name="when" value="before:britishPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer22" attachTo="British" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsBri_Hull_Carrier22"/><option name="placement" value="22 Sea Zone:carrier"/><option name="removeUnits" value="22 Sea Zone:hull_carrier"/><option name="when" value="before:britishPurchase"/></attachment>
  <!--americans-->
-  <attachment name="conditionAttachmentUnitsAmi_Hull_Batttleship27" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="27 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship27" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsAmi_Hull_Batttleship27"/><option name="placement" value="27 Sea Zone:battleship"/><option name="when" value="before:americansPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsAmi_Hull_Battleship27" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="27 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship27" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsAmi_Hull_Battleship27"/><option name="placement" value="27 Sea Zone:battleship"/><option name="removeUnits" value="27 Sea Zone:hull_battleship"/><option name="when" value="before:americansPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsAmi_Hull_Carrier27" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="27 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer27" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsAmi_Hull_Carrier27"/><option name="placement" value="27 Sea Zone:carrier"/><option name="when" value="before:americansPurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsAmi_Hull_Batttleship139" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="139 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship139" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsAmi_Hull_Batttleship139"/><option name="placement" value="139 Sea Zone:battleship"/><option name="when" value="before:americansPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer27" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsAmi_Hull_Carrier27"/><option name="placement" value="27 Sea Zone:carrier"/><option name="removeUnits" value="27 Sea Zone:hull_carrier"/><option name="when" value="before:americansPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsAmi_Hull_Battleship139" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="139 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship139" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsAmi_Hull_Battleship139"/><option name="placement" value="139 Sea Zone:battleship"/><option name="removeUnits" value="139 Sea Zone:hull_battleship"/><option name="when" value="before:americansPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsAmi_Hull_Carrier139" attachTo="Americans" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="139 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer139" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsAmi_Hull_Carrier139"/><option name="placement" value="139 Sea Zone:carrier"/><option name="when" value="before:americansPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer139" attachTo="Americans" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsAmi_Hull_Carrier139"/><option name="placement" value="139 Sea Zone:carrier"/><option name="removeUnits" value="139 Sea Zone:hull_carrier"/><option name="when" value="before:americansPurchase"/></attachment>
 <!--french-->
-  <attachment name="conditionAttachmentUnitsFre_Hull_Batttleship26" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="26 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship26" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsFre_Hull_Batttleship26"/><option name="placement" value="26 Sea Zone:battleship"/><option name="when" value="before:frenchPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsFre_Hull_Battleship26" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="26 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship26" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsFre_Hull_Battleship26"/><option name="placement" value="26 Sea Zone:battleship"/><option name="removeUnits" value="26 Sea Zone:hull_battleship"/><option name="removeUnits" value="26 Sea Zone:hull_battleship"/><option name="when" value="before:frenchPurchase"/></attachment>
   <attachment name="conditionAttachmentUnitsFre_Hull_Carrier26" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="26 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer26" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsFre_Hull_Carrier26"/><option name="placement" value="26 Sea Zone:carrier"/><option name="when" value="before:frenchPurchase"/></attachment>
-  <attachment name="conditionAttachmentUnitsFre_Hull_Batttleship32" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="32 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullBattleship32" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsFre_Hull_Batttleship32"/><option name="placement" value="32 Sea Zone:battleship"/><option name="when" value="before:frenchPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer26" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsFre_Hull_Carrier26"/><option name="placement" value="26 Sea Zone:carrier"/><option name="removeUnits" value="26 Sea Zone:hull_carrier"/><option name="when" value="before:frenchPurchase"/></attachment>
+  <attachment name="conditionAttachmentUnitsFre_Hull_Battleship32" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="32 Sea Zone" count="1"/><option name="unitPresence" value="hull_battleship" count="1"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullBattleship32" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnitsFre_Hull_Battleship32"/><option name="placement" value="32 Sea Zone:battleship"/><option name="removeUnits" value="32 Sea Zone:hull_battleship"/><option name="when" value="before:frenchPurchase"/></attachment>
   <attachment name="conditionAttachmentUnits_Hull_Carrier32" attachTo="French" javaClass="RulesAttachment" type="player"><option name="directPresenceTerritories" value="32 Sea Zone" count="1"/><option name="unitPresence" value="hull_carrier" count="1"/></attachment>
-  <attachment name="triggerAttachmentReplaceHullCarrierGer32" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnits_Hull_Carrier32"/><option name="placement" value="32 Sea Zone:carrier"/><option name="when" value="before:frenchPurchase"/></attachment>
+  <attachment name="triggerAttachmentReplaceHullCarrierGer32" attachTo="French" javaClass="games.strategy.triplea.attachments.TriggerAttachment" type="player"><option name="conditions" value="conditionAttachmentUnits_Hull_Carrier32"/><option name="placement" value="32 Sea Zone:carrier"/><option name="removeUnits" value="26 Sea Zone:hull_carrier"/><option name="when" value="before:frenchPurchase"/></attachment>
                   
 
  <!-- MINORS CHANGE RELATIONSHIPS CHANGE OR JOIN ALLIANCES BY CHANCE ROLL-->    
@@ -11879,6 +11878,10 @@ Fix misspelling of "entrenchment_hit" for Americans and Italians. Also "artiller
 -added argentina trigger when south america neutral-axis attacked
 -added Pro Active Undecided Minor Turkey 
 -changed hills relief
+<br>
+1.8<br>
+solved battleship & carrier hull not-consumed after placment with extra option remove unit s
+
 <br>
 <br>
 Disclaimer Copyrights images: I was careful in selecting copyright-free images for the notifications;<BR>
