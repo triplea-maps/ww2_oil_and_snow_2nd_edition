@@ -1,5 +1,3 @@
-# ww2_oil_and_snow_2nd_edition
-
 ww2_oil_and_snow_1st_edition
 
 GAME INFO:
