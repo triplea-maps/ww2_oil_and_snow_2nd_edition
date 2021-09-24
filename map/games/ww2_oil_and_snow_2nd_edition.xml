@@ -12553,7 +12553,7 @@ if Unlimited Constructions = true, then this number becomes 10000 --><!--option 
     </property>
     <property name="Neutral Flyover Allowed" value="false" editable="false"><boolean/>
     </property>
-    <property name="mapName" value="ww2_oil_and_snow_1st_edition" editable="false"/>
+    <property name="mapName" value="ww2_oil_and_snow_2nd_edition" editable="false"/>
    <property name="notes">
       <value><![CDATA[  
 <div style="padding:12px;font-size:12px;background-color:white;text-align:justify;">
